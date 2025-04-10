@@ -125,7 +125,7 @@ def main():
         img = qr.make_image(fill_color="black", back_color="white")
         output_path = os.path.join(os.getcwd(), "vless_qrcode.png")
         img.save(output_path)
-        print(f"\nThe URI QR code is also saved as: {output_path}")
+        print(f"\nThe QR code URI is also saved as: {output_path}")
 
     except ValueError as e:
         print(f"Error: {e}")
