@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import os
+import qrcode
 from pathlib import Path
 from urllib.parse import quote
 
@@ -110,7 +112,21 @@ def main():
     config = load_config(args.config)
     try:
         vless_uri = generate_vless_uri(config)
+        print("The URI VLESS:")
         print(vless_uri)
+
+        qr = qrcode.QRCode(border=2)
+        qr.add_data(vless_uri)
+        qr.make(fit=True)
+
+        print("\nThe QR code URI:")
+        qr.print_ascii(invert=True)
+
+        img = qr.make_image(fill_color="black", back_color="white")
+        output_path = os.path.join(os.getcwd(), "vless_qrcode.png")
+        img.save(output_path)
+        print(f"\nThe URI QR code is also saved as: {output_path}")
+
     except ValueError as e:
         print(f"Error: {e}")
 
