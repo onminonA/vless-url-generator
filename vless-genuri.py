@@ -112,7 +112,7 @@ def main():
     config = load_config(args.config)
     try:
         vless_uri = generate_vless_uri(config)
-        print("The URI VLESS:")
+        print("The VLESS URI:")
         print(vless_uri)
 
         qr = qrcode.QRCode(border=2)
