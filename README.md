@@ -9,4 +9,4 @@ python3 '/home/user/vless-genuri.py' \-c '/home/user/config.json'
 
 ### Note:
 
-The qrcode package must be installed.
+The _qrcode_ package must be installed.
